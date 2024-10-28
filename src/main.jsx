@@ -1,17 +1,36 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/Home/Home.jsx";
+import About from "./components/About/About.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import Users from "./components/Users/Users.jsx";
+
 const router = createBrowserRouter([
-  { path: "/", element: <div>I am from React Router</div> },
   {
-    path: "/about",
-    element: <div>Hello From About section</div>,
-  },
-  {
-    path: "/contact",
-    element: <div>Cell Me</div>
+    path: "/",
+    element: <Home></Home>,
+    children: [
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/app",
+        element: <App></App>,
+      },
+      {
+        path: "/users",
+        loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
+        element: <Users></Users>,
+      },
+    ],
   },
 ]);
 
