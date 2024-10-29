@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <p>©️2024 All Rights Reserved</p>
+      <p className="text-center py-8">©️2024 All Rights Reserved</p>
     </div>
   );
 };

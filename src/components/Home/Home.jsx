@@ -4,8 +4,8 @@ import Footer from "../Footer/Footer";
 
 export default function Home() {
   return (
-    <div>
-      <Header></Header>
+    <div className="text-center space-y-4">
+      <Header ></Header>
       <h1>This is the home components</h1>
       <Outlet></Outlet>
       <Footer></Footer>
